@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+    <link rel="stylesheet" th:href="@{/styles/index.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/js/jquery-ui-1.13.0/jquery-ui.min.css}" />
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/jquery-ui-1.13.0/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/index.js}"></script>
+</head>
+<body>
+    <div class="cabecera">
+        <div class="cab1"></div>
+        <div class="cap2"></div>
+    </div>
+    <div class="cuerpo">
+        <div class="panel1">
+            <div class="nota"><div class="notacab1"><p>Ejercicio</p></div>
+                              <div class="notabody"><p style="text-align: center;"><span>#Spring Boot Project - Peticiones asíncronas</span></p>
+                            </div>
+            </div>
+            <div class="nota"><div class="notacab1"><p>Enunciado</p></div>
+                              <div class="notabody"><p class="objetivos">Dado el código de fornt-end de este proyecto y sin modificar el htm, js y css, implemente las siguientes cuestiones:</p></div>        
+                              <div class="notabody"><p class="objetivos"><b>a)</b> Añada a la clase controladora IndexController un nuevo controlador mapeado por método POST que responda a /getDatosAlumno y que satisfaga la interfaz de datos enviados y recibidos por la petición asíncrona realizada en la sobrecarga del botón "Buscar" (id="#btnSend") en el fichero /js/index.js correspondiente a la búsqueda de un alumno. </p></div> 
+                              <div class="notabody"><p class="objetivos"><b>b)</b> En la controladora creada en el apartado a), debe controlar que si el usuario no indica ningún NIF entonces se informará con el error 'No ha indicado un NIF.'. </p></div> 
+                              <div class="notabody"><p class="objetivos"><b>c)</b> En la controladora creada en el apartado a), debe controlar que si el NIF indiado no existe, se informará con el error 'Alumno con NIF: XXXXXXXXX no localizado.'. </p></div> 
+                              <div class="notabody"><p class="objetivos"><b>d)</b> Si el NIF introducido coincide con los datos de un alumno (clase Grupo) entonces debe devolver la información del alumno: nif, nombre, apellidos, edad </p></div> 
+                              <div class="notabody"><p class="objetivos"><b>e)</b> Además de los datos informados en el apartado d), si el código postal del alumno es 35016 deberá informar del municipio indicando 'Las Palmas de Gran Canaria' de lo contrario informará con un 'Otro municipio'. </p></div>
+                              <div class="notabody"><p class="objetivos"><b>AYUDA AL DESARROLLO</b></p></div>
+                              <div class="notabody"><p class="objetivos"><b>Ejemplo de respuesta json I:</b></p></div>
+                              <div class="notabody"><p class="objetivos">{"alumno":{"nif":"49992123A","nombre":"Lucia","apellidos":"Pérez Gonzalez","edad":34,"codigoPostal":35200},"municipio":"Es de Las Palmas de Gran Canaria","error":false,"msgError":""}</p></div>
+                              <div class="notabody"><p class="objetivos"><b>Ejemplo de respuesta json II:</b></p></div>
+            				  <div class="notabody"><p class="objetivos">{"alumno":null,"municipio":"","error":true,"msgError":"Alumno no localizado"}</p></div>
+                              <div class="notabody"><p class="objetivos"><b>NOTA: </b>Puede crear el/las clases modelos que crea oportuno para conseguir la respuesta esperada.</p></div>
+            </div>
+        </div>
+        <div class="panel2">
+            <div class="item"><p><span>Búsqueda de alumnos:</span> Para localizar los datos de un alumno haga clic aquí: <input id="btn1" type="button" value="Nuevo Alumno" /></p></div>
+            <div id="ResultadoF1" class="item"></div>
+            <!--Ventana JQuery-->
+            <div id="Win1">
+					<!--Formulario de la búsqueda-->
+					<form id="F1">
+		                 <p><label>NIF: </label> <input type="text" id="F1Nif" placeholder="Ej: 45332212M" /></p>
+		                 <br>
+		                 <div><input id="btnSend" type="button" value="Buscar" /></div>
+		                 <br>
+		                 <div id="msgError"></div>
+		            </form>	
+		    </div>
+        </div>
+    </div>
+    <div class="pie"><p><span>©</span> 2023 - Daniel Pérez Pérez</p></div>
+</body>
+</html>
